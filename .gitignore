@@ -160,5 +160,5 @@ cython_debug/
 #.idea/
 
 # .csv and .xlsx files
-.csv
-.xlsx
+*.csv
+*.xlsx
