@@ -21,8 +21,10 @@ Before running set the settings to your liking in the `main.py`. Only required v
 Example commands for running.
 
 ```bash
-python3 -m venv kennelliitto_venv
-source kennelliitto_venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 python3 main.py
 ```
+
+The program will generate .csv and .xlsx files containing the same information.
