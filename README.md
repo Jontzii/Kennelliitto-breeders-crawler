@@ -28,3 +28,10 @@ python3 main.py
 ```
 
 The program will generate .csv and .xlsx files containing the same information.
+
+## TODO
+
+Future features:
+
+- Filter by breeders that only use dogs with this grade of hips
+- Filter breeders that produce many litters from one dam
