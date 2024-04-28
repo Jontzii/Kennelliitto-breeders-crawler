@@ -11,7 +11,9 @@ def main():
         require_breeder_commitment = True, # Kasvattajasitoumus oltava voimassa
         max_amount_of_other_breeds = 1, # Monessako muussa rodussa kennelillä voi olla pentuja
         min_litters = 1, # Montako pentuetta vähintään yhteensä
-        max_litters = 25 # Montako pentuetta maksimissaan yhteensä
+        max_litters = 50, # Montako pentuetta maksimissaan yhteensä
+        min_average_age_of_dam = 2, # Minimi emän keskimääräinen jalostusikä
+        max_average_age_of_dam = 5 # Maksimi emän keskimääräinen jalostusikä
     )
 
     with urllib.request.urlopen(settings.get_url()) as response:

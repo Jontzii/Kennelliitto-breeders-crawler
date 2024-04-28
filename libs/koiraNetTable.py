@@ -64,6 +64,14 @@ class KoiraNetTable:
             if row.total_litters > settings.max_litters:
                 return False
 
+        if settings.min_average_age_of_dam is not None:
+            if row.average_breeding_age_of_dam < settings.min_average_age_of_dam:
+                return False
+
+        if settings.max_average_age_of_dam is not None:
+            if row.average_breeding_age_of_dam > settings.max_average_age_of_dam:
+                return False
+
         return True
 
     def toCsv(self, path: str):

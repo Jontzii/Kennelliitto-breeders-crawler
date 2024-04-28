@@ -6,7 +6,7 @@ class KoiraNetRow:
     puppies: int
     first_litter_year: int
     latest_litter_year: int
-    average_breeding_age: int
+    average_breeding_age_of_dam: int
     average_litters_per_year: int
     fi_mva: int | None = None
     amount_of_other_breeds_with_litters: int
@@ -22,7 +22,7 @@ class KoiraNetRow:
         self.puppies = int(cells[2].get_text())
         self.first_litter_year = int(cells[3].get_text())
         self.latest_litter_year = int(cells[4].get_text())
-        self.average_breeding_age = self._average_breeding_age_to_float(
+        self.average_breeding_age_of_dam = self._average_breeding_age_to_float(
             cells[5].get_text()
         )
         self.average_litters_per_year = float(cells[6].get_text().replace(",", "."))
@@ -45,7 +45,7 @@ class KoiraNetRow:
     def _fi_mva_value(self, value: str) -> int | None:
         if value != "":
             return int(value)
-    
+
         return None
 
     def toList(self) -> list:
@@ -57,7 +57,7 @@ class KoiraNetRow:
             self.puppies,
             self.first_litter_year,
             self.latest_litter_year,
-            self.average_breeding_age,
+            self.average_breeding_age_of_dam,
             self.average_litters_per_year,
             self.fi_mva,
             self.amount_of_other_breeds_with_litters,

@@ -22,6 +22,12 @@ class Settings:
     # Montako pentuetta maksimissaan yhteensä
     max_litters: int | None = None
 
+    # Minimi emän keskimääräinen jalostusikä
+    min_average_age_of_dam: int | None = None
+
+    # Maksimi emän keskimääräinen jalostusikä
+    max_average_age_of_dam: int | None = None
+
     def __init__(
         self,
         breed: int,
@@ -31,6 +37,8 @@ class Settings:
         max_amount_of_other_breeds: int | None = None,
         min_litters: int | None = None,
         max_litters: int | None = None,
+        min_average_age_of_dam: int | None = None,
+        max_average_age_of_dam: int | None = None,
     ) -> None:
         self.breed = breed
         self.max_years_from_last_litter = max_years_from_last_litter
@@ -39,6 +47,8 @@ class Settings:
         self.max_amount_of_other_breeds = max_amount_of_other_breeds
         self.min_litters = min_litters
         self.max_litters = max_litters
+        self.min_average_age_of_dam = min_average_age_of_dam
+        self.max_average_age_of_dam = max_average_age_of_dam
 
     def get_url(self) -> str:
         return f"{self.base_url}?{self._get_url_options()}"
