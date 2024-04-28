@@ -24,4 +24,6 @@ def main():
     koiraNetTable.toExcel(f"{settings.get_file_name()}.xlsx")
 
 if __name__ == "__main__":
+    print("Starting...")
     main()
+    print("Done!")

@@ -47,7 +47,7 @@ class KoiraNetTable:
     def _check_row_against_settings(self, row: KoiraNetRow, settings: Settings) -> bool:
         if settings.require_breeder_commitment and not row.has_breeder_commitment:
             return False
-        
+
         if settings.max_litters_per_year is not None:
             if row.average_litters_per_year > settings.max_litters_per_year:
                 return False
@@ -70,4 +70,14 @@ class KoiraNetTable:
         self.dataFrame.to_csv(path, index=False)
 
     def toExcel(self, path: str):
-        self.dataFrame.to_excel(path, sheet_name="Kasvattajat", index=False)
+        writer = pd.ExcelWriter(path)
+        self.dataFrame.to_excel(writer, sheet_name="Kasvattajat", index=False, na_rep="")
+
+        for column in self.dataFrame:
+            column_length = max(
+                self.dataFrame[column].astype(str).map(len).max(), len(column)
+            )
+            col_idx = self.dataFrame.columns.get_loc(column)
+            writer.sheets["Kasvattajat"].set_column(col_idx, col_idx, column_length)
+
+        writer.close()
